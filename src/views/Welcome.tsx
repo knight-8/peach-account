@@ -22,7 +22,7 @@ export const Welcome = defineComponent({
         </header>
 
         {/*中间的 main 元素，使用 Vue Router 动态组件展示页面内容*/}
-        <main><RouterView/></main>
+        <main class={s.main}><RouterView /></main>
       </div>
     }
   }

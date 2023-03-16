@@ -7,7 +7,6 @@ export const App = defineComponent({
         return () => (
             <div>
                 <RouterView />
-                <h1>哈哈</h1>
             </div>
         )
     }

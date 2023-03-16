@@ -2,14 +2,19 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: linear-gradient(to top, #ffe0b5 0%, #ff9a9e 100%);
     >header {
+        padding-top: 66px;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        color: #FFA07A;
         >img {
-            width: 90px;
+            width: 70px;
+            display: flex;
+            flex-direction: column;
         }
     }
     >main {

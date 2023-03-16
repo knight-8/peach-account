@@ -3,9 +3,6 @@ import { RouterView } from "vue-router";
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/peach.svg'
 
-
-console.log(logo);
-
 // 导出一个名为 Welcome 的组件
 export const Welcome = defineComponent({
 
@@ -20,14 +17,12 @@ export const Welcome = defineComponent({
 
         {/*顶部的 header 元素，显示文字 'logo'*/}
         <header>
-            <img src="logo" alt="" />
+            <img src={logo} alt="" />
+            <h1>桃子记账</h1>
         </header>
 
         {/*中间的 main 元素，使用 Vue Router 动态组件展示页面内容*/}
         <main><RouterView/></main>
-
-        {/*底部的 footer 元素，显示一些按钮*/}
-        <footer>buttons</footer>
       </div>
     }
   }

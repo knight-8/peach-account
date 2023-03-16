@@ -1,5 +1,5 @@
 import { defineComponent } from "vue"; // 导入名为 defineComponent 的函数
-import { RouterView } from "vue-router";
+import { RouterView } from 'vue-router';
 import s from './Welcome.module.scss'
 import logo from '../assets/icons/peach.svg'
 
@@ -17,7 +17,7 @@ export const Welcome = defineComponent({
 
         {/*顶部的 header 元素，显示文字 'logo'*/}
         <header>
-            <img src={logo} alt="" />
+            <img src={logo} alt="logo" />
             <h1>桃子记账</h1>
         </header>
 

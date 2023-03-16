@@ -5,7 +5,7 @@ import { RouterLink } from "vue-router";
 
 export const First = defineComponent({
     setup:(props, context) => {
-        return () => {
+        return () => (
             <div class={s.wrapper}>
                 <div class={s.card}>
                     <img class={s.pig} src={purse} alt="钱包" />
@@ -17,6 +17,6 @@ export const First = defineComponent({
                     <RouterLink to="/start">跳过</RouterLink>
                 </div>
             </div>
-        }
+        )
     }
 })

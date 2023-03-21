@@ -2,7 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to top, #ffe0b5 0%, #ff9a9e 100%);
+    background-image: linear-gradient(to bottom, var(--welcome--bg-start) 0%, var(--welcome--bg-end) 100%);
     >header {
         padding-top: 66px;
         flex-shrink: 0;
@@ -10,7 +10,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: #FFA07A;
+        color: black;
         >img {
             width: 70px;
             display: flex;

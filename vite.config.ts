@@ -12,7 +12,7 @@ export default defineConfig({
       transformOn: true,
       mergeProps: true
     }),
-    //svgstore(),
+    svgstore(),
   ]
 })
 

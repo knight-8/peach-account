@@ -1,29 +1,34 @@
-import { defineComponent } from "vue"; // 导入名为 defineComponent 的函数
-import { RouterView } from 'vue-router';
+import { defineComponent, ref, Transition, VNode, watchEffect } from 'vue';
+import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
+import { useSwipe } from '../hooks/useSwipe';
 import s from './Welcome.module.scss'
-import logo from '../assets/icons/peach.svg'
-
-// 导出一个名为 Welcome 的组件
 export const Welcome = defineComponent({
-
-  // 该组件的设置和逻辑
   setup: (props, context) => {
-
-    // 返回一个函数，表示该组件的模板内容
-    return () => {
-      
-      // 一个 div 元素，class 为 's.wrapper'
-      return <div class={s.wrapper}>
-
-        {/*顶部的 header 元素，显示文字 'logo'*/}
-        <header>
-            <img src={logo} alt="logo" />
-            <h1>桃子记账</h1>
-        </header>
-
-        {/*中间的 main 元素，使用 Vue Router 动态组件展示页面内容*/}
-        <main class={s.main}><RouterView /></main>
-      </div>
-    }
+    const main = ref<HTMLElement | null>(null)
+    const { direction, swiping } = useSwipe(main)
+    watchEffect(() => {
+      console.log(swiping.value, direction.value)
+    })
+    return () => <div class={s.wrapper}>
+      <header>
+        <svg>
+          <use xlinkHref='#peach'></use>
+        </svg>
+        <h1>桃子记账</h1>
+      </header>
+      <main class={s.main} ref={main}>
+        <RouterView name="main">
+          {({ Component: X, route: R }: { Component: VNode, route: RouteLocationNormalizedLoaded }) =>
+            <Transition enterFromClass={s.slide_fade_enter_from} enterActiveClass={s.slide_fade_enter_active}
+              leaveToClass={s.slide_fade_leave_to} leaveActiveClass={s.slide_fade_leave_active}>
+              {X}
+            </Transition>
+          }
+        </RouterView>
+      </main>
+      <footer>
+        <RouterView name="footer" />
+      </footer>
+    </div>
   }
 })
